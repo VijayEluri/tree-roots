@@ -1,0 +1,43 @@
+package parser;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.util.Collection;
+
+import logger.Logger;
+
+import org.ccil.cowan.tagsoup.Parser;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+
+public class ParserTagSoup implements ParserInt
+{
+	private LinkContextHandler linkContextHandler;
+	
+	public ParserTagSoup() {linkContextHandler = new LinkContextHandler();}
+	
+	@Override
+	public Collection<String> parse(byte[] page)
+	{
+		Parser p = new Parser();
+
+		p.setContentHandler(linkContextHandler);
+		
+		try
+		{
+			p.parse(new InputSource(new ByteArrayInputStream(page)));
+		} catch (IOException e)
+		{
+			Logger.log(1, this.getClass().getSimpleName(), "parse",
+					"input error, couldn't parse page: " + e.toString());
+		} catch (SAXException e)
+		{
+			Logger.log(1, this.getClass().getSimpleName(), "parse",
+					"SAX exception, tag soup couldn't parse page: "
+							+ e.toString());
+		}
+		
+		return linkContextHandler.removeLinkStrings();
+	}
+
+}
