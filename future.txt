@@ -1,0 +1,44 @@
+-- youtube --
+get youtube video as MP4
+http://www.youtube.com/get_video?fmt=18&video_id=tm1ALKF-g4w&t=vjVQa1PpcFPWCO1YiMuEz0vZLYr7OQ8oHMsr0BPTRHc=
+*remove fmt=18 and it will be a flv
+
+api reference: http://code.google.com/apis/youtube/2.0/reference.html#Spelling_Suggestions
+returns atom, rss feeds
+can get spelling suggestions from it
+
+-- vimeo --
+they have an api but you can't get the flv or actual file like you can with youtube
+there is an unofficial method: http://xbmc.org/forum/showpost.php?p=220138&postcount=3
+
+-- lastfm --
+has simiiar artist and track suggestions
+album art
+api reference: http://www.last.fm/api/intro
+search by track
+http://ws.audioscrobbler.com/2.0/?method=track.search&track=bounce&artist=bloody%20beetroots&api_key=b25b959554ed76058ac220b7b2e0a026&limit%202
+search for artist
+http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=bloody%20beetroots&api_key=b25b959554ed76058ac220b7b2e0a026&limit=1
+
+-* soundmanager 2 *-
+the one muxtape used!
+plays flv, mp4 mp3 
+BSD licence
+http://www.schillmania.com/projects/soundmanager2/#home
+
+-- flow player --
+open source version availible and can be used commercially with some logos and junk
+http://flowplayer.org
+
+-- similar services --
+search engine : http://skreemr.com/
+like seeqpod  : http://mixturtle.com/ 
+like imeem    : http://listen.grooveshark.com and an add on to this http://tinysong.com/
+like imeem    : http://www.deezer.com
+like imeem    : http://fairtilizer.com
+like imeem    : http://www.playlist.com/
+
+-- javascript --
+mootools - lightweight pretty intresting
+prototype - 
+jquery   - non intrusive js
