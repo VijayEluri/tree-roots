@@ -91,9 +91,11 @@ public class AnalyzeSpider extends SpiderAbs
 
 					// check to see if the file was successfully analysed
 					if (analysisComplete)
+					{
 						// write analysed file to queue
+						Logger.logDebug("added: " + currentLink.getArtist());
 						AudioFileQueue.getInstance().addAudioLink(currentLink);
-					else
+					}else
 					{
 						// TODO: move the file to the unknown file table?
 						// probably not

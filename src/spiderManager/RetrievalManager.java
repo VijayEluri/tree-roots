@@ -1,6 +1,7 @@
 package spiderManager;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -47,6 +48,18 @@ public class RetrievalManager implements ManagerInt
 		// check if filepath is a dir that can be used for tem storage
 		if (!temStorageDir.isDirectory())
 			Logger.log(1, this.getClass().getSimpleName(), "init", "specified dir path isn't a directory");
+		
+		//clean the old files from this directory
+		for(File oldFile : temStorageDir.listFiles())
+			oldFile.delete();
+		File warningFile = new File(temStorageDir.toString() + File.pathSeparator + "This Dir Gets Erased");
+		try
+		{
+			warningFile.createNewFile();
+		} catch (IOException e)
+		{
+			Logger.log(1, this.getClass().getSimpleName(), "init", "couldn't create warning file");
+		}
 
 		// Initalize the spider and spider info collections
 		spiders = new ArrayList<SpiderAbs>();

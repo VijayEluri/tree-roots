@@ -31,7 +31,7 @@ public class ConfigFactory
 		configFilter.setFilteredFileTypes(new String[] {".pdf",".jpg",".gif",".png",".bmp",".rar", ".zip", ".z7", ".doc", ".flv", ".ppt", ".avi", ".mov", ".tar", ".odf", ".xls",".csv",".txt",".xml", ".jpeg"});
 		//TODO: read configuration from xml or properties file
 		//set some configuration values temporarily
-		configSearch.setSpiderCount(3);
+		configSearch.setSpiderCount(0);
 		configSearch.setDomainPageLimitMultiplier(5);
 		configSearch.setFileTypes("mp3,flac,ogg,m4a,mp4");
 		configSearch.setLinkQueueSize(200);
@@ -43,7 +43,7 @@ public class ConfigFactory
 		configSearch.setConfFilter(configFilter);
 		configSearch.setTimeBetweenChecks(1000 * 60 * 10);
 		
-		configHypeM.setSpiderCount(1);
+		configHypeM.setSpiderCount(0);
 		configHypeM.setLinkQueueSize(10);
 		configHypeM.setPageTimeout(2000);
 		configHypeM.setMaxHttpConnections(30);
@@ -53,7 +53,7 @@ public class ConfigFactory
 		configHypeM.setTimeBetweenCrawls(3 * 60 * 60 * 1000); // in mills
 		configHypeM.setDomainRelevance(1);
 
-		configSearchGoogle.setSpiderCount(1);
+		configSearchGoogle.setSpiderCount(0);
 		configSearchGoogle.setDomainRelevance(2);
 		configSearchGoogle.setSearchResultsPageDepth(6);
 		configSearchGoogle.setPageTimeout(2000);
@@ -70,7 +70,7 @@ public class ConfigFactory
 		
 		configRetrieval.setSpiderCount(1);
 		configRetrieval.setMinimumOperatingStorageSpace(1000 * 1000 * 100); //in bytes
-		configRetrieval.setMaxFileRetrievalSize(7000);
+		configRetrieval.setMaxFileRetrievalSize(30000);
 		configRetrieval.setTemStorageDir("tem");
 		configRetrieval.setPageTimeout(2000);
 		configRetrieval.setMaxHttpConnections(30);
@@ -85,9 +85,9 @@ public class ConfigFactory
 		
 		//mysql
 		configDB.setDriver("com.mysql.jdbc.Driver");
-		configDB.setConnectionString("jdbc:mysql://192.168.1.101/mixtree?user=mixtree&password=conflic1");
+		configDB.setConnectionString("jdbc:mysql://127.0.0.1/mixtree?user=mixtree&password=conflict");
 		configDB.setDriverForLocal("com.mysql.jdbc.Driver");
-		configDB.setConnectionStringForLocal("jdbc:mysql://192.168.1.101/mixtree?user=mixtree&password=conflic1");
+		configDB.setConnectionStringForLocal("jdbc:mysql://127.0.0.1/mixtree?user=mixtree&password=conflict");
 		
 		//postgreSQL
 		//configDB.setDriver("org.postgresql.Driver");
@@ -103,7 +103,7 @@ public class ConfigFactory
 		configQueue.setFileLinkQueueSize(0);
 		configQueue.setFileRetrievalCount(50);
 		configQueue.setAudioLinkQueueCapacity(0);
-		configQueue.setFileAnalysisQueueCapacity(50);
+		configQueue.setFileAnalysisQueueCapacity(30);
 	}
 	
 	public ConfigSearch getConfigSearch() {return configSearch;}

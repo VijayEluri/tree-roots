@@ -22,6 +22,6 @@ public class Logger
 	
 	public static void logDebug(String msg)
 	{
-		//System.out.println(msg);
+		System.out.println(msg);
 	}
 }
